@@ -426,13 +426,6 @@ function cambiarSemana(delta, resetDirecto = false) {
   }
 }
 
-function etiquetaSemana(offset) {
-  if (offset === 0)  return '';
-  if (offset === 1)  return ' · Próxima semana';
-  if (offset === -1) return ' · Semana pasada';
-  return offset > 0 ? ` · +${offset} semanas` : ` · ${offset} semanas`;
-}
-
 // ── PANEL SEMANA ─────────────────────────────────────────────────
 function renderSemana(eventos) {
   const hoy   = new Date();
@@ -450,7 +443,7 @@ function renderSemana(eventos) {
   const ahora  = hoy.getHours() * 60 + hoy.getMinutes();
 
   document.getElementById('semanaRango').textContent =
-    `${semana[0].getDate()} de ${MESES_ES[semana[0].getMonth()]} — ${semana[6].getDate()} de ${MESES_ES[semana[6].getMonth()]}${etiquetaSemana(semanaOffset)}`;
+    `${semana[0].getDate()} de ${MESES_ES[semana[0].getMonth()]} — ${semana[6].getDate()} de ${MESES_ES[semana[6].getMonth()]}`;
 
   document.getElementById('semanaHoy').classList.toggle('activo', semanaOffset === 0);
 
